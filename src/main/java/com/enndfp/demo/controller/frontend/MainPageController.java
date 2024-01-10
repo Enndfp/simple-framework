@@ -3,6 +3,9 @@ package com.enndfp.demo.controller.frontend;
 import com.enndfp.demo.entity.dto.Result;
 import com.enndfp.demo.service.combine.HeadLineShopCategoryCombineService;
 import com.enndfp.demo.entity.dto.MainPageInfoDTO;
+import com.enndfp.simpleframework.core.annotation.Controller;
+import com.enndfp.simpleframework.inject.annotation.Autowired;
+import lombok.Getter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Enndfp
  */
+@Controller
+@Getter
 public class MainPageController {
+    @Autowired(value = "HeadLineShopCategoryCombineServiceImpl")
     private HeadLineShopCategoryCombineService headLineShopCategoryCombineService;
 
     /**

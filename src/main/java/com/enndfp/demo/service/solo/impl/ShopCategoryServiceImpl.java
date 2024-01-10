@@ -3,12 +3,14 @@ package com.enndfp.demo.service.solo.impl;
 import com.enndfp.demo.entity.bo.ShopCategory;
 import com.enndfp.demo.entity.dto.Result;
 import com.enndfp.demo.service.solo.ShopCategoryService;
+import com.enndfp.simpleframework.core.annotation.Service;
 
 import java.util.List;
 
 /**
  * @author Enndfp
  */
+@Service
 public class ShopCategoryServiceImpl implements ShopCategoryService {
     @Override
     public Result<Boolean> addShopCategory(ShopCategory shopCategory) {

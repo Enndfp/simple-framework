@@ -3,6 +3,8 @@ package com.enndfp.demo.controller.superadmin;
 import com.enndfp.demo.entity.bo.HeadLine;
 import com.enndfp.demo.entity.dto.Result;
 import com.enndfp.demo.service.solo.HeadLineService;
+import com.enndfp.simpleframework.core.annotation.Controller;
+import com.enndfp.simpleframework.inject.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,8 +13,10 @@ import java.util.List;
 /**
  * @author Enndfp
  */
+@Controller
 public class HeadLineOperationController {
 
+    @Autowired
     private HeadLineService headLineService;
 
     /**

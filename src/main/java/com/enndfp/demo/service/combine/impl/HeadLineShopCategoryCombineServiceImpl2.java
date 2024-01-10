@@ -1,21 +1,27 @@
-package com.enndfp.demo.service.combine;
+package com.enndfp.demo.service.combine.impl;
 
 import com.enndfp.demo.entity.bo.HeadLine;
 import com.enndfp.demo.entity.bo.ShopCategory;
+import com.enndfp.demo.entity.dto.MainPageInfoDTO;
 import com.enndfp.demo.entity.dto.Result;
+import com.enndfp.demo.service.combine.HeadLineShopCategoryCombineService;
 import com.enndfp.demo.service.solo.HeadLineService;
 import com.enndfp.demo.service.solo.ShopCategoryService;
-import com.enndfp.demo.entity.dto.MainPageInfoDTO;
+import com.enndfp.simpleframework.core.annotation.Service;
+import com.enndfp.simpleframework.inject.annotation.Autowired;
 
 import java.util.List;
 
 /**
  * @author Enndfp
  */
-public class HeadLineShopCategoryCombineServiceImpl implements HeadLineShopCategoryCombineService {
+@Service
+public class HeadLineShopCategoryCombineServiceImpl2 implements HeadLineShopCategoryCombineService {
 
+    @Autowired
     private HeadLineService headLineService;
 
+    @Autowired
     private ShopCategoryService shopCategoryService;
 
     @Override
