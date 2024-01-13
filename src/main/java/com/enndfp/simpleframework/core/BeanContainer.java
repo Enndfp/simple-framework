@@ -1,5 +1,6 @@
 package com.enndfp.simpleframework.core;
 
+import com.enndfp.simpleframework.aop.annotation.Aspect;
 import com.enndfp.simpleframework.core.annotation.Component;
 import com.enndfp.simpleframework.core.annotation.Controller;
 import com.enndfp.simpleframework.core.annotation.Repository;
@@ -26,7 +27,7 @@ public class BeanContainer {
 
     // 加载Bean的注解列表
     private static final List<Class<? extends Annotation>> BEAN_ANNOTATION
-            = Arrays.asList(Component.class, Controller.class, Service.class, Repository.class);
+            = Arrays.asList(Component.class, Controller.class, Service.class, Repository.class, Aspect.class);
 
     // 容器是否已经加载过Bean
     private boolean loaded = false;

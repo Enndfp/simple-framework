@@ -2,7 +2,6 @@ package com.enndfp.simpleframework.inject;
 
 import com.enndfp.demo.controller.frontend.MainPageController;
 import com.enndfp.demo.service.combine.impl.HeadLineShopCategoryCombineServiceImpl;
-import com.enndfp.demo.service.combine.impl.HeadLineShopCategoryCombineServiceImpl2;
 import com.enndfp.simpleframework.core.BeanContainer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,6 +22,5 @@ public class DependencyInjectorTest {
         new DependencyInjector().doIOC();
         Assertions.assertNotEquals(null,mainPageController.getHeadLineShopCategoryCombineService());
         Assertions.assertEquals(true,mainPageController.getHeadLineShopCategoryCombineService() instanceof HeadLineShopCategoryCombineServiceImpl);
-        Assertions.assertEquals(false,mainPageController.getHeadLineShopCategoryCombineService() instanceof HeadLineShopCategoryCombineServiceImpl2);
     }
 }

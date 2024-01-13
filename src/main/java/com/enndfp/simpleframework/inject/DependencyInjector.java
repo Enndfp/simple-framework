@@ -16,7 +16,7 @@ import java.util.Set;
 public class DependencyInjector {
 
     // Bean容器
-    private BeanContainer beanContainer;
+    private final BeanContainer beanContainer;
 
     public DependencyInjector() {
         beanContainer = BeanContainer.getInstance();

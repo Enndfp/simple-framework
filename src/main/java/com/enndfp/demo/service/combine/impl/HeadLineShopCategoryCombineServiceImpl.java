@@ -9,12 +9,14 @@ import com.enndfp.demo.service.solo.ShopCategoryService;
 import com.enndfp.demo.entity.dto.MainPageInfoDTO;
 import com.enndfp.simpleframework.core.annotation.Service;
 import com.enndfp.simpleframework.inject.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
 /**
  * @author Enndfp
  */
+@Slf4j
 @Service
 public class HeadLineShopCategoryCombineServiceImpl implements HeadLineShopCategoryCombineService {
 
@@ -26,6 +28,7 @@ public class HeadLineShopCategoryCombineServiceImpl implements HeadLineShopCateg
 
     @Override
     public Result<MainPageInfoDTO> getMainPageInfo() {
+        log.info("getMainPageInfo方法被执行！");
         // 1. 获取头条列表
         HeadLine headLineCondition = new HeadLine();
         headLineCondition.setEnableStatus(1);
