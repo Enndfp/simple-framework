@@ -8,6 +8,7 @@ import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -54,7 +55,11 @@ public class AspectListExecutor implements MethodInterceptor {
     @Override
     public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         Object returnValue = null;
-        if (ValidationUtil.isEmpty(sortedAspectInfoList)) return null;
+        collectAccurateMatchedAspectList(method);
+        if (ValidationUtil.isEmpty(sortedAspectInfoList)) {
+            returnValue = methodProxy.invokeSuper(proxy, args);
+            return returnValue;
+        }
         // 1. 按照order的顺序升序执行完所有Aspect的before方法
         invokeBeforeAdvices(method, args);
         try {
@@ -67,6 +72,23 @@ public class AspectListExecutor implements MethodInterceptor {
             invokeAfterThrowingAdvices(method, args, e);
         }
         return returnValue;
+    }
+
+    /**
+     * 精筛特定的方法
+     *
+     * @param method
+     */
+    private void collectAccurateMatchedAspectList(Method method) {
+        if (ValidationUtil.isEmpty(sortedAspectInfoList)) return;
+        // for-each不支持动态移除元素，改用迭代器
+        Iterator<AspectInfo> iterator = sortedAspectInfoList.iterator();
+        while (iterator.hasNext()) {
+            AspectInfo aspectInfo = iterator.next();
+            if (!aspectInfo.getPointcutLocator().accurateMatches(method)) {
+                iterator.remove();
+            }
+        }
     }
 
     /**

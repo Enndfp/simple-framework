@@ -13,4 +13,6 @@ public class AspectInfo {
     private int orderIndex;
 
     private DefaultAspect aspectObject;
+
+    private PointcutLocator pointcutLocator;
 }
