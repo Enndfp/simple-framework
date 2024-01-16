@@ -1,6 +1,6 @@
 package com.enndfp.simpleframework.core;
 
-import com.enndfp.demo.controller.DispatcherServlet;
+import com.enndfp.simpleframework.mvc.DispatcherServlet;
 import com.enndfp.demo.controller.frontend.MainPageController;
 import com.enndfp.demo.service.solo.HeadLineService;
 import com.enndfp.demo.service.solo.impl.HeadLineServiceImpl;
