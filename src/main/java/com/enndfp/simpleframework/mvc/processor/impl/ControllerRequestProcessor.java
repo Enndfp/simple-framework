@@ -104,10 +104,10 @@ public class ControllerRequestProcessor implements RequestProcessor {
         Map<String, Class<?>> methodParamMap = new HashMap<>();
         Parameter[] parameters = method.getParameters();
 
-        if (ValidationUtil.isEmpty(parameters)) return;
-
-        for (Parameter parameter : parameters) {
-            processParameterAnnotation(parameter, methodParamMap);
+        if (!ValidationUtil.isEmpty(parameters)){
+            for (Parameter parameter : parameters) {
+                processParameterAnnotation(parameter, methodParamMap);
+            }
         }
 
         // 3. 封装 RequestPathInfo

@@ -12,8 +12,18 @@ public class Result<T> {
     private int code;
 
     // 本次请求结果的详情
-    private String msg;
+    private String message;
 
     // 本次请求返回的结果集
     private T data;
+
+    public Result(int code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
+    public static <E> Result<E> ok(E data) {
+        return new Result<>(200, "成功！", data);
+    }
 }
